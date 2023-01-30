@@ -127,3 +127,51 @@ def game_hash
 end
 
 # Write code here
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~Helper Methods~~~~~~~~~~~~~~~~
+def all_players
+  game_hash[:home][:players] + game_hash[:away][:players]
+end
+
+def get_player_by_name(player_name)
+  all_players.find do |player|
+    player[:player_name] == player_name
+  end
+end
+
+def get_team_by_name(team_name)
+  team_info = game_hash.find do |key, value|
+    value[:team_name] == team_name
+  end
+# return just the team name
+  team_info[1]
+end
+
+#~~~~~~~~~~~~~~~~~~End Helper Methods~~~~~~~~~~~~~~~~
+
+def num_points_scored(player_name)
+  get_player_by_name(player_name)[:points]
+end
+
+def shoe_size(player_name)
+  get_player_by_name(player_name)[:shoe]
+end
+
+def team_colors(team_name)
+  get_team_by_name(team_name)[:colors]
+end
+
+def team_names
+  game_hash.collect do |team_location, team_name|
+    team_info[:team_name] 
+  end
+end
+
+def player_numbers(team_name)
+end
+
+def player_stats(player_name)
+end
+
+def big_shoe_rebounds
+end
+
